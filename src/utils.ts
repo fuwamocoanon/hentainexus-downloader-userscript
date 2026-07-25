@@ -10,6 +10,6 @@ export const getImageUrl = (image: Image) => {
 		case 'fallback':
 			return image.image_fallback;
 		case 'source':
-			return image.image_source;
+			return image.image_source ?? image.image_fallback;
 	}
 };

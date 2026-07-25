@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         hentainexus-downloader-userscript
 // @namespace    vite-plugin-monkey
-// @version      1.3.2
+// @version      1.3.3
 // @author       monkey
 // @description  Allows users to download a gallery from HentaiNexus with it's metadata
 // @downloadURL  https://github.com/LetrixZ/hentainexus-downloader-userscript/raw/main/dist/hentainexus-downloader-userscript.user.js
@@ -77,9 +77,9 @@ System.register("./__entry.js", [], (function (exports, module) {
         });
       };
       if (location.pathname == "/" || location.pathname.startsWith("/page") || location.pathname.startsWith("/favorites")) {
-        __vitePreload(() => module.import('./library-6LUIFUyB-7kFNLgJp.js'), void 0 ).then((m) => m.init());
+        __vitePreload(() => module.import('./library-yjlRWWE4-KJyMqJRA.js'), void 0 ).then((m) => m.init());
       } else if (location.pathname.startsWith("/view/")) {
-        __vitePreload(() => module.import('./gallery-RKWZgGDm-67US8pbf.js'), void 0 ).then((m) => m.init());
+        __vitePreload(() => module.import('./gallery-bynDoM10-3ZJY-V4t.js'), void 0 ).then((m) => m.init());
       } else if (location.pathname.startsWith("/settings")) {
         __vitePreload(() => module.import('./settings-jDkTTiWX-NZqKtFph.js'), void 0 ).then((m) => m.init());
       }
@@ -88,7 +88,7 @@ System.register("./__entry.js", [], (function (exports, module) {
   };
 }));
 
-System.register("./library-6LUIFUyB-7kFNLgJp.js", ['./stores-B3C_LVr_-KbD-57jp.js', './settings-jDkTTiWX-NZqKtFph.js'], (function (exports, module) {
+System.register("./library-yjlRWWE4-KJyMqJRA.js", ['./stores-3dnIlEZR-5eSlnibi.js', './settings-jDkTTiWX-NZqKtFph.js'], (function (exports, module) {
   'use strict';
   var downloaded, downloadIcon, createLibraryItemDownloadStateManager, getMetadata, getImages, startDownload, sleep, createDownloadStateStore;
   return {
@@ -238,7 +238,7 @@ System.register("./library-6LUIFUyB-7kFNLgJp.js", ['./stores-B3C_LVr_-KbD-57jp.j
   };
 }));
 
-System.register("./gallery-RKWZgGDm-67US8pbf.js", ['./stores-B3C_LVr_-KbD-57jp.js', './settings-jDkTTiWX-NZqKtFph.js'], (function (exports, module) {
+System.register("./gallery-bynDoM10-3ZJY-V4t.js", ['./stores-3dnIlEZR-5eSlnibi.js', './settings-jDkTTiWX-NZqKtFph.js'], (function (exports, module) {
   'use strict';
   var getData, downloadIcon, downloaded, sleep, xMarkIcon, spinnerIcon, createDownloadStateStore, getImages, startDownload;
   return {
@@ -322,7 +322,7 @@ System.register("./gallery-RKWZgGDm-67US8pbf.js", ['./stores-B3C_LVr_-KbD-57jp.j
   };
 }));
 
-System.register("./stores-B3C_LVr_-KbD-57jp.js", ['./settings-jDkTTiWX-NZqKtFph.js'], (function (exports, module) {
+System.register("./stores-3dnIlEZR-5eSlnibi.js", ['./settings-jDkTTiWX-NZqKtFph.js'], (function (exports, module) {
   'use strict';
   var getImageFormat;
   return {
@@ -1782,7 +1782,7 @@ System.register("./stores-B3C_LVr_-KbD-57jp.js", ['./settings-jDkTTiWX-NZqKtFph.
           case "fallback":
             return image.image_fallback;
           case "source":
-            return image.image_source;
+            return image.image_source ?? image.image_fallback;
         }
       };
       const primeNumbers = [2, 3, 5, 7, 11, 13, 17, 19];
